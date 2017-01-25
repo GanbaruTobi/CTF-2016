@@ -1,0 +1,39 @@
+Level description:
+
+The password for the next level is stored in a file called - located in the home directory
+
+Commands you may need:
+ls, cd, cat, file, du, find
+
+Helpful reading Material:
+https://www.google.com/search?q=dashed+filename
+http://tldp.org/LDP/abs/html/special-chars.html
+
+1. Connect "ssh bandit1@bandit.labs.overthewire.org"
+2. Enter password we got from lvl0
+3. Input "ls" gives:
+
+-
+
+Thats probably what the file is called.
+
+4. Input "cat -" does:
+
+
+
+Nothing... it waits for input. When we write bla, bla gets returnd in the shell. Seems like - is some kind of special character here.
+Using the first link gives a lot of results on how to solve this. we can escape - by writing '-' or "-"
+
+5. Input "cat '-'" gives:
+
+Nothing... this workaround doesnt help. The problem is cat sees - as a synonym for stdin
+So we use a relative path to make it understand its not stdin
+
+6. Input "cat ./-" returns:
+CV1DtqXWVFXTvM2F0k09SHz0YwRINYA9
+
+There is the pw =)
+
+
+
+
