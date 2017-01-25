@@ -1,0 +1,157 @@
+Level Description:
+
+The goal of this level is for you to log into the game using SSH.
+The host to which you need to connect is bandit.labs.overthewire.org.
+The username is bandit0 and the password is bandit0. 
+Once logged in, go to the Level 1 page to find out how to beat Level 1.
+
+Commands you may need to solve this level:
+ssh
+
+Helpful Reading Material:
+en.wikipedia.org/wiki/Secure_Shell
+www.wikihow.com/Use-SSH
+
+
+Write-Up:
+
+1. open terminal
+2. Input "ssh -h" to see the commands available:
+
+unknown option - h
+usage: ssh [-1246AaCfGgKkMNnqsTtVvXxYy] [-b bind_address] [-c cipher_spec]
+           [-D [bind_address:]port] [-E log_file] [-e escape_char]
+           [-F configfile] [-I pkcs11] [-i identity_file]
+           [-J [user@]host[:port]] [-L address] [-l login_name] [-m mac_spec]
+           [-O ctl_cmd] [-o option] [-p port] [-Q query_option] [-R address]
+           [-S ctl_path] [-W host:port] [-w local_tun[:remote_tun]]
+           [user@]hostname [command]
+
+While there is no help defined, the shell was nice to still give us all available parameters back.
+Now we use the username and we try the syntax defined as [user@]hostname
+
+3. Input "ssh bandit0@bandit.labs.overthewire.org" gives the following answer:
+
+The authenticity of host 'bandit0bandit.labs.overthewire.org (178.79.134.250)' can't be established.
+ECDSA key fingerprint is SHA256:Hlh5ZcIKRiQ3pRRjBT2Z873ALJtRx6XragCg3suK4nU.
+Are you sure you want to continue connecting (yes/no)?
+
+Seems like we got a connection, but we don't know if the system is realy the system we wanted to connect to.
+In this case I'm going to trust it and contiune by inputing yes.
+
+4. Input "yes" and wait for server answer:
+
+This is the OverTheWire game server. More information on http://www.overthewire.org/wargames
+
+Please note that wargame usernames are no longer level<X>, but wargamename<X>
+e.g. vortex4, semtex2, ...
+
+Note: at this moment, blacksun is not available.
+
+ganbaruTobi@bandit0bandit.labs.overthewire.org's password:
+
+Here we have to input the password from the description.
+
+5. Input "bandit0" and we are in:
+ 
+     ,----..            ,----,          .---. 
+     /   /   \         ,/   .`|         /. ./|
+    /   .     :      ,`   .'  :     .--'.  ' ;
+   .   /   ;.  \   ;    ;     /    /__./ \ : |
+  .   ;   /  ` ; .'___,/    ,' .--'.  '   \' .
+  ;   |  ; \ ; | |    :     | /___/ \ |    ' ' 
+  |   :  | ; | ' ;    |.';  ; ;   \  \;      : 
+  .   |  ' ' ' : `----'  |  |  \   ;  `      |
+  '   ;  \; /  |     '   :  ;   .   \    .\  ; 
+   \   \  ',  /      |   |  '    \   \   ' \ |
+    ;   :    /       '   :  |     :   '  |--"  
+     \   \ .'        ;   |.'       \   \ ;     
+  www. `---` ver     '---' he       '---" ire.org     
+               
+              
+Welcome to the OverTheWire games machine!
+
+If you find any problems, please report them to Steven on
+irc.overthewire.org.
+
+--[ Playing the games ]--
+
+  This machine holds several wargames. 
+  If you are playing "somegame", then:
+
+    * USERNAMES are somegame0, somegame1, ...
+    * Most LEVELS are stored in /somegame/.
+    * PASSWORDS for each level are stored in /etc/somegame_pass/.
+
+  Write-access to homedirectories is disabled. It is advised to create a
+  working directory with a hard-to-guess name in /tmp/.  You can use the
+  command "mktemp -d" in order to generate a random and hard to guess
+  directory in /tmp/.  Read-access to both /tmp/ and /proc/ is disabled
+  so that users can not snoop on eachother.
+
+  Please play nice:
+      
+    * don't leave orphan processes running
+    * don't leave exploit-files laying around
+    * don't annoy other players
+    * don't post passwords or spoilers
+    * again, DONT POST SPOILERS! 
+      This includes writeups of your solution on your blog or website!
+
+--[ Tips ]--
+
+  This machine has a 64bit processor and many security-features enabled
+  by default, although ASLR has been switched off.  The following
+  compiler flags might be interesting:
+
+    -m32                    compile for 32bit
+    -fno-stack-protector    disable ProPolice
+    -Wl,-z,norelro          disable relro 
+
+  In addition, the execstack tool can be used to flag the stack as
+  executable on ELF binaries.
+
+  Finally, network-access is limited for most levels by a local
+  firewall.
+
+--[ Tools ]--
+
+ For your convenience we have installed a few usefull tools which you can find
+ in the following locations:
+
+    * peda (https://github.com/longld/peda.git) in /usr/local/peda/
+    * gdbinit (https://github.com/gdbinit/Gdbinit) in /usr/local/gdbinit/
+    * pwntools (https://github.com/Gallopsled/pwntools) in /usr/src/pwntools/
+    * radare2 (http://www.radare.org/) should be in $PATH
+
+--[ More information ]--
+
+  For more information regarding individual wargames, visit
+  http://www.overthewire.org/wargames/
+
+  For questions or comments, contact us through IRC on
+  irc.overthewire.org.
+
+
+bandit0@melinda:~$
+
+Second description:
+
+The password for the next level is stored in a file called readme located in the home directory. Use this password to log into bandit1 using SSH.
+Whenever you find a password for a level, use SSH to log into that level and continue the game.
+
+Commands you may need to solve this level:
+ls, cd, cat, file, du, find
+
+6. Input "ls" to list directorys content:
+
+readme
+
+So there is one file called readme, we can see its content with cat
+
+7. Input "cat readme" shows the pw:
+boJ9jbbUNNfktd78OOpsqOltutMc3MY1
+
+With this password we can login as bandit1 in the next level.
+
+
