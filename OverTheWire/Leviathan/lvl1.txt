@@ -1,0 +1,38 @@
+After login:
+
+1. ls
+
+check
+
+check is an executeable for leviathan1
+
+2. ./check
+password:
+
+Let's try the lvl1 password:
+Wrong password, Good Bye ...
+
+Damn...
+
+3. strings check
+
+shows alot but can't see a pw
+
+4. ltrace check
+
+watch for the strcmp function
+with this we can put the right pw in.
+
+5. ./check
+
+put pw in and we get a new shell user
+
+6. whoami
+
+leviathan2
+
+Now here i had to read all informations again. There is a folder holding all the passwords.
+
+7. cat /etc/leviathan_pass/leviathan2
+
+Done
