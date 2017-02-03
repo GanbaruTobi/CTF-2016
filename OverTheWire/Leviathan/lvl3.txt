@@ -1,0 +1,5 @@
+This level is easier than the last ones.
+Just remember that while debugging you might can't get a privilege rise.
+If u see u unlocked with a matching string, use it in a real program execution.
+
+Next!

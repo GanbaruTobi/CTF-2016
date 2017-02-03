@@ -34,5 +34,6 @@ leviathan2
 Now here i had to read all informations again. There is a folder holding all the passwords.
 
 7. cat /etc/leviathan_pass/leviathan2
+ougahZi8Ta
 
 Done
